@@ -90,78 +90,78 @@ func factorial(n int) int {
 	return (n * factorial(n-1))
 }
 
-// func main() {
-// 	fmt.Println("start the programm...")
-// 	err := godotenv.Load(".env")
-// 	if err != nil {
-// 		log.Fatal("Error loading .env file")
-// 	}
-// 	fmt.Println("key is ", os.Getenv("HELLO_KEY"))
+func main() {
+	fmt.Println("start the programm...")
+	err := godotenv.Load(".env")
+	if err != nil {
+		log.Fatal("Error loading .env file")
+	}
+	fmt.Println("key is ", os.Getenv("HELLO_KEY"))
 
-// 	howAreYou()
-// 	var temp VowelFinder = Mystring("My name is Sams")
-// 	vowel := temp.FindVowelUsingInterface()
-// 	fmt.Println("vowels is ", vowel)
-// 	array := []int{5, 4, 3, 6, 7, 1, 9, 2}
-// 	fmt.Println(" Before Sort ", array)
-// 	bubbleSort(array)
-// 	fmt.Println(" After Sort ", array)
-// 	left := 0
-// 	right := len(array) - 1
-// 	if binarySearch(array, 3, left, right) {
-// 		fmt.Println("Number are present ")
-// 	} else {
-// 		fmt.Println("Number are not present ")
-// 	}
-// 	fmt.Println("factorial number is ", factorial(10))
-// }
+	howAreYou()
+	var temp VowelFinder = Mystring("My name is Sams")
+	vowel := temp.FindVowelUsingInterface()
+	fmt.Println("vowels is ", vowel)
+	array := []int{5, 4, 3, 6, 7, 1, 9, 2}
+	fmt.Println(" Before Sort ", array)
+	bubbleSort(array)
+	fmt.Println(" After Sort ", array)
+	left := 0
+	right := len(array) - 1
+	if binarySearch(array, 3, left, right) {
+		fmt.Println("Number are present ")
+	} else {
+		fmt.Println("Number are not present ")
+	}
+	fmt.Println("factorial number is ", factorial(10))
+}
 
-// func main() {
-// 	fmt.Println("hello")
-// 	ctx, _ := context.WithTimeout(context.Background(), time.Second*10)
-// 	// go hell(cancel)
-// 	fmt.Println(hello(ctx))
-// }
+func main() {
+	fmt.Println("hello")
+	ctx, _ := context.WithTimeout(context.Background(), time.Second*10)
+	// go hell(cancel)
+	fmt.Println(hello(ctx))
+}
 
-// func hell(c context.CancelFunc) {
-// 	time.Sleep(5 * time.Second)
-// 	c()
-// }
+func hell(c context.CancelFunc) {
+	time.Sleep(5 * time.Second)
+	c()
+}
 
-// func hello(ctx context.Context) string {
+func hello(ctx context.Context) string {
 
-// 	select {
-// 	case <-ctx.Done():
-// 		return "context cancelled"
-// 	}
+	select {
+	case <-ctx.Done():
+		return "context cancelled"
+	}
 
-// }
+}
 
-// func worker(jobs <-chan int, wg *sync.WaitGroup) {
-// 	for j := range jobs {
-// 		time.Sleep(time.Second)
-// 		fmt.Println("worker", j)
-// 	}
-// 	wg.Done()
+func worker(jobs <-chan int, wg *sync.WaitGroup) {
+	for j := range jobs {
+		time.Sleep(time.Second)
+		fmt.Println("worker", j)
+	}
+	wg.Done()
 
-// }
+}
 
-// func main() {
-// 	const numJobs = 5
-// 	jobs := make(chan int)
-// 	var wg sync.WaitGroup
-// 	for w := 1; w <= 3; w++ {
-// 		wg.Add(1)
-// 		go worker(jobs, &wg)
-// 	}
+func main() {
+	const numJobs = 5
+	jobs := make(chan int)
+	var wg sync.WaitGroup
+	for w := 1; w <= 3; w++ {
+		wg.Add(1)
+		go worker(jobs, &wg)
+	}
 
-// 	for j := 1; j <= numJobs; j++ {
-// 		jobs <- j
-// 	}
-// 	close(jobs)
-// 	wg.Wait()
-// 	time.Sleep(2 * time.Second)
-// }
+	for j := 1; j <= numJobs; j++ {
+		jobs <- j
+	}
+	close(jobs)
+	wg.Wait()
+	time.Sleep(2 * time.Second)
+}
 
 func Hello(s string) (string, error) {
 	if s == "" {
